@@ -1,0 +1,42 @@
+
+import React from 'react';
+import { Button } from "@/components/ui/button";
+import { Link } from 'react-router-dom';
+
+const NavBar = () => {
+  return (
+    <header className="w-full py-4 px-6 border-b bg-background/95 backdrop-blur sticky top-0 z-10">
+      <div className="container max-w-7xl mx-auto flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-2">
+          <div className="h-8 w-8 rounded-full bg-gradient-to-r from-brand-purple to-brand-darkPurple flex items-center justify-center text-white font-bold">
+            L
+          </div>
+          <span className="text-xl font-semibold">Linkify</span>
+        </Link>
+        
+        <nav className="hidden md:flex items-center gap-6">
+          <Link to="/features" className="text-muted-foreground hover:text-foreground transition-colors">
+            Features
+          </Link>
+          <Link to="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">
+            Pricing
+          </Link>
+          <Link to="/help" className="text-muted-foreground hover:text-foreground transition-colors">
+            Help
+          </Link>
+        </nav>
+        
+        <div className="flex items-center gap-4">
+          <Link to="/login">
+            <Button variant="outline">Login</Button>
+          </Link>
+          <Link to="/signup">
+            <Button>Get Started</Button>
+          </Link>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default NavBar;
