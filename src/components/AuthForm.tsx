@@ -52,9 +52,12 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
   const handleGoogleAuth = async () => {
     setLoading(true);
     
-    // Simulate Google authentication process
+    // In a real implementation, you would initialize Google OAuth here
     try {
+      console.log("Initiating Google authentication");
+      // This is where you would call the real Google OAuth API
       await new Promise(resolve => setTimeout(resolve, 1000));
+      
       toast({
         title: "Google authentication successful",
         description: "You've been successfully authenticated with Google.",
@@ -74,9 +77,12 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
   const handleAppleAuth = async () => {
     setLoading(true);
     
-    // Simulate Apple authentication process
+    // In a real implementation, you would initialize Apple OAuth here
     try {
+      console.log("Initiating Apple authentication");
+      // This is where you would call the real Apple OAuth API
       await new Promise(resolve => setTimeout(resolve, 1000));
+      
       toast({
         title: "Apple authentication successful",
         description: "You've been successfully authenticated with Apple.",
@@ -152,7 +158,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
           />
         </div>
         
-        <Button type="submit" className="w-full" disabled={loading}>
+        <Button type="submit" className="w-full bg-red-600 hover:bg-red-700" disabled={loading}>
           {loading ? 'Processing...' : type === 'login' ? 'Sign In' : 'Create Account'}
         </Button>
       </form>
@@ -169,7 +175,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
       <div className="space-y-3">
         <Button 
           variant="outline" 
-          className="w-full flex items-center gap-2" 
+          className="w-full flex items-center gap-2 border-red-600/30 hover:bg-red-50 hover:border-red-600" 
           onClick={handleGoogleAuth}
           disabled={loading}
         >
@@ -185,7 +191,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
         
         <Button 
           variant="outline" 
-          className="w-full flex items-center gap-2" 
+          className="w-full flex items-center gap-2 border-red-600/30 hover:bg-red-50 hover:border-red-600" 
           onClick={handleAppleAuth}
           disabled={loading}
         >
@@ -197,7 +203,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
         
         <Button 
           variant="outline" 
-          className="w-full" 
+          className="w-full border-red-600/30 hover:bg-red-50 hover:border-red-600" 
           onClick={handleGuestAuth}
           disabled={loading}
         >

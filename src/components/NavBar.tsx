@@ -8,7 +8,7 @@ const NavBar = () => {
     <header className="w-full py-4 px-6 border-b bg-background/95 backdrop-blur sticky top-0 z-10">
       <div className="container max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-full bg-gradient-to-r from-brand-purple to-brand-darkPurple flex items-center justify-center text-white font-bold">
+          <div className="h-8 w-8 rounded-full bg-gradient-to-r from-red-600 to-red-800 flex items-center justify-center text-white font-bold">
             L
           </div>
           <span className="text-xl font-semibold">Linkify</span>
@@ -28,10 +28,10 @@ const NavBar = () => {
         
         <div className="flex items-center gap-4">
           <Link to="/login">
-            <Button variant="outline">Login</Button>
+            <Button variant="outline" className="border-red-600/30 text-red-600 hover:bg-red-50 hover:border-red-600">Login</Button>
           </Link>
           <Link to="/signup">
-            <Button>Get Started</Button>
+            <Button className="bg-red-600 hover:bg-red-700">Get Started</Button>
           </Link>
         </div>
       </div>

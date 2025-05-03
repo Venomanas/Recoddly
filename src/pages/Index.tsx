@@ -14,46 +14,6 @@ const Index = () => {
         <Hero />
         <Features />
         
-        {/* How It Works Section */}
-        <section className="py-16 px-6 bg-secondary">
-          <div className="container max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              <div className="text-center">
-                <div className="bg-brand-purple/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-brand-purple">1</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Sign Up</h3>
-                <p className="text-muted-foreground">Create an account or sign in with Google, Apple, or as a guest.</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="bg-brand-purple/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-brand-purple">2</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Add Your Links</h3>
-                <p className="text-muted-foreground">Easily add social media profiles, websites, or any URL you want to share.</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="bg-brand-purple/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-brand-purple">3</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Share Your Page</h3>
-                <p className="text-muted-foreground">Get your unique URL and share it on your social media profiles.</p>
-              </div>
-            </div>
-            
-            <div className="text-center mt-16">
-              <Link to="/signup">
-                <button className="bg-brand-purple text-white px-8 py-3 rounded-lg hover:bg-brand-darkPurple transition-colors">
-                  Get Started Now
-                </button>
-              </Link>
-            </div>
-          </div>
-        </section>
-        
         {/* Testimonials */}
         <section className="py-16 px-6">
           <div className="container max-w-7xl mx-auto">
@@ -61,7 +21,7 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-background rounded-lg p-6 border">
                 <div className="flex items-center mb-4">
-                  <div className="h-10 w-10 rounded-full bg-brand-purple/20"></div>
+                  <div className="h-10 w-10 rounded-full bg-red-600/20"></div>
                   <div className="ml-4">
                     <h4 className="font-semibold">Sarah Johnson</h4>
                     <p className="text-sm text-muted-foreground">Content Creator</p>
@@ -74,7 +34,7 @@ const Index = () => {
               
               <div className="bg-background rounded-lg p-6 border">
                 <div className="flex items-center mb-4">
-                  <div className="h-10 w-10 rounded-full bg-brand-purple/20"></div>
+                  <div className="h-10 w-10 rounded-full bg-red-600/20"></div>
                   <div className="ml-4">
                     <h4 className="font-semibold">Alex Rivera</h4>
                     <p className="text-sm text-muted-foreground">Photographer</p>
@@ -87,7 +47,7 @@ const Index = () => {
               
               <div className="bg-background rounded-lg p-6 border">
                 <div className="flex items-center mb-4">
-                  <div className="h-10 w-10 rounded-full bg-brand-purple/20"></div>
+                  <div className="h-10 w-10 rounded-full bg-red-600/20"></div>
                   <div className="ml-4">
                     <h4 className="font-semibold">Jamie Smith</h4>
                     <p className="text-sm text-muted-foreground">Small Business Owner</p>
@@ -102,14 +62,14 @@ const Index = () => {
         </section>
         
         {/* CTA Section */}
-        <section className="py-16 px-6 bg-gradient-to-r from-brand-purple to-brand-darkPurple text-white">
+        <section className="py-16 px-6 bg-gradient-to-r from-red-600 to-red-800 text-white">
           <div className="container max-w-7xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Create Your Link Page?</h2>
             <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
               Join thousands of content creators, influencers, and businesses who use Linkify to connect with their audience.
             </p>
             <Link to="/signup">
-              <button className="bg-white text-brand-purple px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium">
+              <button className="bg-white text-red-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium">
                 Start for Free
               </button>
             </Link>

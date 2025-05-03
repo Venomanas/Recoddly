@@ -9,7 +9,7 @@ const Hero = () => {
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
         <div className="absolute right-0 top-0 w-1/2 h-1/2 bg-accent/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-brand-purple/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-red-600/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
       </div>
       
       <div className="container max-w-7xl mx-auto px-6 relative z-10">
@@ -26,12 +26,12 @@ const Hero = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/signup">
-                <Button size="lg" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto bg-red-600 hover:bg-red-700">
                   Create Your Link Page
                 </Button>
               </Link>
               <Link to="/examples">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto border-red-600 text-red-600 hover:bg-red-50">
                   See Examples
                 </Button>
               </Link>
@@ -44,7 +44,7 @@ const Hero = () => {
               <div className="rounded-[3rem] border-8 border-foreground/5 bg-background shadow-xl overflow-hidden">
                 <div className="relative aspect-[9/19.5]">
                   {/* Preview image of a profile page */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/20 to-brand-darkPurple/40 flex flex-col items-center pt-12 px-4">
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 to-black/40 flex flex-col items-center pt-12 px-4">
                     <div className="w-24 h-24 rounded-full bg-white shadow-lg mb-4"></div>
                     <div className="text-center mb-6">
                       <h3 className="font-bold text-lg">@username</h3>
@@ -65,7 +65,7 @@ const Hero = () => {
               
               {/* Decorative elements */}
               <div className="absolute -right-4 -bottom-4 w-32 h-32 bg-accent rounded-full blur-xl opacity-50"></div>
-              <div className="absolute -left-4 -top-4 w-32 h-32 bg-brand-purple/30 rounded-full blur-xl opacity-50"></div>
+              <div className="absolute -left-4 -top-4 w-32 h-32 bg-red-600/30 rounded-full blur-xl opacity-50"></div>
             </div>
           </div>
         </div>
