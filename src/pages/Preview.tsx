@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import { Link } from 'react-router-dom';
@@ -9,6 +9,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 const Preview = () => {
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
+  const qrRef = useRef<SVGSVGElement>(null);
   
   // Mock data for preview
   const profile = {
@@ -41,26 +42,44 @@ const Preview = () => {
   };
   
   const handleDownloadQRCode = () => {
-    const canvas = document.getElementById('qr-code-canvas');
-    if (canvas) {
-      const pngUrl = canvas.toDataURL('image/png');
-      const downloadLink = document.createElement('a');
-      downloadLink.href = pngUrl;
-      downloadLink.download = `recoddly-${profile.username}-qrcode.png`;
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
-      
-      toast({
-        title: "QR Code downloaded",
-        description: "Your QR code has been downloaded successfully",
-      });
-    }
+    // Fix: Use the SVG to convert to a PNG for download
+    if (!qrRef.current) return;
+    
+    // Create a canvas element
+    const canvas = document.createElement('canvas');
+    const svg = qrRef.current;
+    const svgData = new XMLSerializer().serializeToString(svg);
+    const img = new Image();
+    
+    // When the image loads, draw it to the canvas and create download link
+    img.onload = () => {
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const ctx = canvas.getContext('2d');
+      if (ctx) {
+        ctx.drawImage(img, 0, 0);
+        const pngUrl = canvas.toDataURL('image/png');
+        const downloadLink = document.createElement('a');
+        downloadLink.href = pngUrl;
+        downloadLink.download = `recoddly-${profile.username}-qrcode.png`;
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+        
+        toast({
+          title: "QR Code downloaded",
+          description: "Your QR code has been downloaded successfully",
+        });
+      }
+    };
+    
+    // Convert SVG to data URL
+    img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
   };
   
   return (
     <div className="min-h-screen bg-secondary/30 flex flex-col">
-      <div className="bg-background sticky top-0 z-10 border-b">
+      <div className="bg-background sticky top-0 z-10 border-b backdrop-blur-md bg-background/80">
         <div className="container max-w-7xl mx-auto flex items-center justify-between p-4">
           <Link to="/dashboard" className="text-brand-purple hover:underline flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
@@ -96,7 +115,7 @@ const Preview = () => {
                 <div className="flex flex-col items-center justify-center py-4">
                   <div className="bg-white p-4 rounded-lg">
                     <QRCodeSVG 
-                      id="qr-code-canvas"
+                      ref={qrRef}
                       value={pageUrl}
                       size={200}
                       level="H" // High error correction capability
