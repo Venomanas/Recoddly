@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import { Link } from 'react-router-dom';
+import { QRCodeSVG } from 'qrcode.react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 const Preview = () => {
   const [copied, setCopied] = useState(false);
@@ -24,9 +26,11 @@ const Preview = () => {
     buttonStyle: 'bg-white text-brand-purple hover:bg-opacity-90 transition-all',
     fontStyle: 'font-sans'
   };
+
+  const pageUrl = `https://recoddly.com/${profile.username}`;
   
   const handleCopyLink = () => {
-    navigator.clipboard.writeText(`https://linkify.com/${profile.username}`);
+    navigator.clipboard.writeText(pageUrl);
     setCopied(true);
     toast({
       title: "Link copied",
@@ -34,6 +38,24 @@ const Preview = () => {
     });
     
     setTimeout(() => setCopied(false), 2000);
+  };
+  
+  const handleDownloadQRCode = () => {
+    const canvas = document.getElementById('qr-code-canvas');
+    if (canvas) {
+      const pngUrl = canvas.toDataURL('image/png');
+      const downloadLink = document.createElement('a');
+      downloadLink.href = pngUrl;
+      downloadLink.download = `recoddly-${profile.username}-qrcode.png`;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+      
+      toast({
+        title: "QR Code downloaded",
+        description: "Your QR code has been downloaded successfully",
+      });
+    }
   };
   
   return (
@@ -59,6 +81,46 @@ const Preview = () => {
                 </>
               )}
             </Button>
+            
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="outline" size="sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><rect x="7" y="7" width="3" height="3"></rect><rect x="14" y="7" width="3" height="3"></rect><rect x="7" y="14" width="3" height="3"></rect><rect x="14" y="14" width="3" height="3"></rect></svg>
+                  QR Code
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle>Your Recoddly QR Code</DialogTitle>
+                </DialogHeader>
+                <div className="flex flex-col items-center justify-center py-4">
+                  <div className="bg-white p-4 rounded-lg">
+                    <QRCodeSVG 
+                      id="qr-code-canvas"
+                      value={pageUrl}
+                      size={200}
+                      level="H" // High error correction capability
+                      includeMargin={true}
+                      imageSettings={{
+                        src: "/qrlogo.png",
+                        excavate: true,
+                        height: 24,
+                        width: 24,
+                      }}
+                    />
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-4 mb-2">
+                    Share this QR code to let people access your Recoddly page
+                  </p>
+                  <div className="flex gap-2 mt-2">
+                    <Button variant="default" onClick={handleDownloadQRCode}>
+                      Download QR Code
+                    </Button>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
+            
             <Link to="/dashboard/links">
               <Button size="sm">
                 Edit Page
@@ -117,7 +179,7 @@ const Preview = () => {
                   </div>
                   
                   <div className="mt-auto pt-6 text-white/70 text-xs">
-                    Powered by Linkify
+                    Powered by Recoddly
                   </div>
                 </div>
               </div>
