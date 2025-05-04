@@ -9,7 +9,7 @@ const NavBar = () => {
       <div className="container max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           
-            <img src="./public/recodimage/4.png" alt="recoddly logo"
+            <img src="/recodimage/4.png" alt="recoddly logo"
             className='w-14 h-14 justify-start flex items-start'
              />
           

@@ -53,7 +53,7 @@ const DashboardLayout = () => {
       <div className="md:hidden sticky top-0 z-30 bg-background border-b flex justify-between items-center p-4">
         <Link to="/" className="flex items-center gap-2">
           <img
-            src="./public/recodimage/4.png"
+            src="/recodimage/4.png"
             alt="recoddly logo"
             className="w-14 h-14 justify-start flex items-start"
           />
@@ -171,9 +171,11 @@ const DashboardLayout = () => {
         <aside className="hidden md:flex flex-col w-64 border-r bg-background h-screen sticky top-0">
           <div className="p-6">
             <Link to="/" className="flex items-center gap-2">
-              <div className="h-8 w-8 rounded-full bg-gradient-to-r from-brand-purple to-brand-darkPurple flex items-center justify-center text-white font-bold">
-                L
-              </div>
+              <img
+                src="/recodimage/4.png"
+                alt="recoddly logo"
+                className="w-14 h-14 justify-start flex items-start"
+              />
               <span className="text-xl font-semibold">Recoddly</span>
             </Link>
           </div>
