@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
-    <header className="w-full py-4 px-6 border-b bg-background/95 backdrop-blur sticky top-0 z-10">
+    <header className="w-full py-4 px-6 border-b bg-background/90 backdrop-blur-md fixed top-0 z-50">
       <div className="container max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-full bg-gradient-to-r from-red-600 to-red-800 flex items-center justify-center text-white font-bold">
-            L
+            R
           </div>
-          <span className="text-xl font-semibold">Linkify</span>
+          <span className="text-xl font-semibold">Recoddly</span>
         </Link>
         
         <nav className="hidden md:flex items-center gap-6">
