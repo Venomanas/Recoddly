@@ -125,7 +125,7 @@ const Appearance = () => {
                   </div>
                 </div>
 
-                <div>
+                {/* <div>
                   <Label htmlFor="accentColor">Accent Color</Label>
                   <div className="mt-2 flex items-center gap-4">
                     <div 
@@ -141,7 +141,7 @@ const Appearance = () => {
                       />
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </CardContent>
           </Card>

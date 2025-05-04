@@ -28,12 +28,12 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
       if (type === 'login') {
         toast({
           title: "Successfully logged in",
-          description: "Welcome back to your Linkify dashboard!",
+          description: "Welcome back to your recoddly dashboard!",
         });
       } else {
         toast({
           title: "Account created",
-          description: "Welcome to Linkify! Your account has been created.",
+          description: "Welcome to recoddly! Your account has been created.",
         });
       }
       
@@ -107,7 +107,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
       await new Promise(resolve => setTimeout(resolve, 1000));
       toast({
         title: "Guest access granted",
-        description: "You're now using Linkify as a guest. Some features may be limited.",
+        description: "You're now using recoddly as a guest. Some features may be limited.",
       });
       navigate('/dashboard');
     } catch (error) {

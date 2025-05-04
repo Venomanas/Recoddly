@@ -30,11 +30,11 @@ const Hero = () => {
                   Create Your Link Page
                 </Button>
               </Link>
-              <Link to="/examples">
+              {/* <Link to="/examples">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto border-red-600 text-red-600 hover:bg-red-50">
                   See Examples
                 </Button>
-              </Link>
+              </Link> */}
             </div>
           </div>
           

@@ -13,7 +13,7 @@ const Admin = () => {
             <div className="h-8 w-8 rounded-full bg-gradient-to-r from-brand-purple to-brand-darkPurple flex items-center justify-center text-white font-bold">
               L
             </div>
-            <span className="text-xl font-semibold">Linkify</span>
+            <span className="text-xl font-semibold">recoddly</span>
             <span className="bg-primary/10 text-primary text-xs py-1 px-2 rounded ml-2">Admin</span>
           </Link>
           

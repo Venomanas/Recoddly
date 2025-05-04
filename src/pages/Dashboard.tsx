@@ -34,7 +34,7 @@ const Dashboard = () => {
       </div>
       
       {/* Welcome Message */}
-      <div className="bg-gradient-to-r from-red-600 to-red-800 text-white p-6 rounded-lg">
+      <div className="bg-gradient-to-r from-red-600 to-red-800 text-white p-6 rounded-lg mt-51 pt-5">
         <h2 className="text-2xl font-semibold mb-2">Welcome to Recoddly!</h2>
         <p className="opacity-90 mb-4">Your personalized link page is ready to be customized. Add your links and make it your own.</p>
         <div className="flex flex-wrap gap-3">
