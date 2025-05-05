@@ -74,7 +74,7 @@ const DashboardSettings = () => {
                 <div className="space-y-2">
                   <Label htmlFor="username">Username</Label>
                   <div className="flex items-center">
-                    <span className="text-muted-foreground mr-1">linkify.com/</span>
+                    <span className="text-muted-foreground mr-1">recoddly.com/</span>
                     <Input
                       id="username"
                       value={username}
