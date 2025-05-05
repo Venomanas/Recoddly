@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { CONFIG } from '@/lib/config';
 
 const Dashboard = () => {
   // Mock data for dashboard statistics
@@ -12,6 +12,9 @@ const Dashboard = () => {
     ctr: '45.7%',
     followers: 32,
   };
+  
+  // Use the configurable base URL for the user's page
+  const userPageUrl = `${CONFIG.baseUrl}/yourusername`;
   
   return (
     <div className="space-y-8">
@@ -34,7 +37,7 @@ const Dashboard = () => {
       </div>
       
       {/* Welcome Message */}
-      <div className="bg-gradient-to-r from-red-600 to-red-800 text-white p-6 rounded-lg mt-51 pt-5">
+      <div className="bg-gradient-to-r from-red-600 to-red-800 text-white p-6 rounded-lg">
         <h2 className="text-2xl font-semibold mb-2">Welcome to Recoddly!</h2>
         <p className="opacity-90 mb-4">Your personalized link page is ready to be customized. Add your links and make it your own.</p>
         <div className="flex flex-wrap gap-3">
@@ -144,8 +147,15 @@ const Dashboard = () => {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="p-4 bg-secondary rounded-md flex items-center justify-between">
-              <code className="text-sm font-mono">https://recoddly.com/yourusername</code>
-              <Button variant="ghost" size="sm" className="h-8 w-8 p-0 flex items-center justify-center">
+              <code className="text-sm font-mono">{userPageUrl}</code>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="h-8 w-8 p-0 flex items-center justify-center"
+                onClick={() => {
+                  navigator.clipboard.writeText(userPageUrl);
+                }}
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className=""><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
                 <span className="sr-only">Copy URL</span>
               </Button>
